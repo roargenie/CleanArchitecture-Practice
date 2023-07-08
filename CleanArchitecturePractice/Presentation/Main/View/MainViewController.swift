@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MainViewController: BaseViewController {
     
     private let mainView = MainView()
     private let viewModel: MainViewModel
+    private let disposeBag = DisposeBag()
+    private var movieData = [MovieResults]()
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -28,34 +32,23 @@ final class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        
-    }
-    
-    override func configureUI() {
-        mainView.collectionView.delegate = self
-        mainView.collectionView.dataSource = self
     }
     
     private func bindViewModel() {
         
-        let input = MainViewModel.Input()
+        let input = MainViewModel.Input(
+            viewDidLoadEvent: Observable.just(()).asSignal(onErrorJustReturn: ()))
         let output = viewModel.transform(input: input)
         
-        
-        
+        output.movieList
+            .drive(mainView.collectionView.rx.items) { (cv, index, item) -> UICollectionViewCell in
+                guard let cell = cv.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseIdentifier, for: IndexPath.init(item: index, section: 0)) as? MainCollectionViewCell else { return UICollectionViewCell() }
+                cell.setupCell(data: item)
+                return cell
+            }
+            .disposed(by: disposeBag)
+            
     }
     
 }
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        
-        return cell
-    }
-    
-}

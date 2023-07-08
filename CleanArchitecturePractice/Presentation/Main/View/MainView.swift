@@ -31,7 +31,7 @@ final class MainView: BaseView {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
         let width = UIScreen.main.bounds.width
-        let height: CGFloat = 400
+        let height: CGFloat = 420
         
         layout.itemSize = CGSize(width: width, height: height)
         layout.scrollDirection = .vertical

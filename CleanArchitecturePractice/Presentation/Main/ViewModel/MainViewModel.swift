@@ -15,11 +15,11 @@ final class MainViewModel: CommonViewModelType {
     private let mainUseCase: MainUseCase
     
     struct Input {
-        
+        let viewDidLoadEvent: Signal<Void>
     }
     
     struct Output {
-        
+        let movieList: Driver<[MovieResults]>
     }
     
     init(mainUseCase: MainUseCase) {
@@ -27,13 +27,26 @@ final class MainViewModel: CommonViewModelType {
     }
     var disposeBag = DisposeBag()
     
-    private let movieList = PublishRelay<[MovieResults]>()
+    private let movieList = BehaviorRelay<[MovieResults]>(value: [])
     
     func transform(input: Input) -> Output {
         
+        input.viewDidLoadEvent
+            .emit(onNext: { [weak self] in
+                print("=======🔥ViewModel ViewDidLoad Event======")
+                self?.requestMovie()
+            })
+            .disposed(by: disposeBag)
         
+        mainUseCase.succesMovieSignal
+            .asSignal()
+            .emit { [weak self] response in
+                print("ViewModel ==🟢", response.results)
+                self?.movieList.accept(response.results)
+            }
+            .disposed(by: disposeBag)
         
-        return Output()
+        return Output(movieList: movieList.asDriver())
     }
 }
 

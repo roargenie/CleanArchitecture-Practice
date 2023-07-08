@@ -29,7 +29,7 @@ extension TMDBTarget: TargetType {
     var path: String {
         switch self {
         case .trendingMovie:
-            return "trending/all/week?api_key=\(APIKey.TMDB)&language-en-US"
+            return "trending/movie/week"
         case .genre:
             return ""
         case .cast:
@@ -48,17 +48,17 @@ extension TMDBTarget: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .trendingMovie, .genre, .cast, .video:
+        case .trendingMovie:
+            return .requestParameters(
+                parameters: ["api_key": APIKey.TMDB],
+                encoding: URLEncoding.queryString)
+        default:
             return .requestPlain
         }
     }
     
     var headers: [String : String]? {
-        return [
-            "": ""
-//            "accept": "application/json",
-//            "Authorization": "Bearer" + APIKey.TMDB
-        ]
+        return [:]
     }
     
     

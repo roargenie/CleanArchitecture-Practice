@@ -35,9 +35,12 @@ extension TMDBRepository: TMDBRepositoryType {
     
     func requestMovie(completion: @escaping (Result<MovieResponse, TMDBNetworkError>) -> Void) {
         provider.request(.trendingMovie) { result in
+            print("함수 호출 됨!!!!!!!!!!!!!!!!!!!!!!!!", result)
             switch result {
             case .success(let response):
                 let data = try? JSONDecoder().decode(MovieResponseDTO.self, from: response.data)
+//                print("✅ ResponseDTO", data?.results)
+                dump(data?.results)
                 completion(.success(data!.toDomain()))
             case .failure(let error):
                 completion(.failure(TMDBNetworkError(rawValue: error.response!.statusCode) ?? .unknown))
