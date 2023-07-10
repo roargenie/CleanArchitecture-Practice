@@ -23,8 +23,6 @@
 		F676D5A02A582EFB008E9400 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D59F2A582EFB008E9400 /* BaseTableViewCell.swift */; };
 		F676D5A32A582F56008E9400 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5A22A582F56008E9400 /* Protocol.swift */; };
 		F676D5A62A583031008E9400 /* Cell+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5A52A583031008E9400 /* Cell+Ex.swift */; };
-		F676D5AB2A583343008E9400 /* MainTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5AA2A583343008E9400 /* MainTableViewHeaderView.swift */; };
-		F676D5AE2A58356E008E9400 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5AD2A58356E008E9400 /* MovieInfoView.swift */; };
 		F676D5B02A583A25008E9400 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5AF2A583A25008E9400 /* MainCollectionViewCell.swift */; };
 		F676D5B22A583A64008E9400 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5B12A583A64008E9400 /* BaseCollectionViewCell.swift */; };
 		F676D5B42A585446008E9400 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5B32A585446008E9400 /* MainViewModel.swift */; };
@@ -38,6 +36,16 @@
 		F676D5D02A5861B9008E9400 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5CF2A5861B9008E9400 /* EndPoint.swift */; };
 		F676D5D22A5942B6008E9400 /* TMDBRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5D12A5942B6008E9400 /* TMDBRepositoryType.swift */; };
 		F676D5D42A595281008E9400 /* MovieResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5D32A595281008E9400 /* MovieResponseDTO.swift */; };
+		F676D5FE2A5BE328008E9400 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5FD2A5BE328008E9400 /* DetailViewModel.swift */; };
+		F676D6002A5BE334008E9400 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D5FF2A5BE334008E9400 /* DetailView.swift */; };
+		F676D6022A5BE33A008E9400 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6012A5BE33A008E9400 /* DetailViewController.swift */; };
+		F676D6052A5BE36C008E9400 /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6042A5BE36C008E9400 /* OverViewTableViewCell.swift */; };
+		F676D6072A5BE374008E9400 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6062A5BE374008E9400 /* CastTableViewCell.swift */; };
+		F676D6092A5BE389008E9400 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6082A5BE389008E9400 /* DetailHeaderView.swift */; };
+		F676D60C2A5BEA41008E9400 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */; };
+		F676D6112A5C0CE5008E9400 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F676D6102A5C0CE5008E9400 /* Differentiator */; };
+		F676D6132A5C0CE5008E9400 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F676D6122A5C0CE5008E9400 /* RxDataSources */; };
+		F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6142A5C15E8008E9400 /* SectionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +63,6 @@
 		F676D59F2A582EFB008E9400 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		F676D5A22A582F56008E9400 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		F676D5A52A583031008E9400 /* Cell+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell+Ex.swift"; sourceTree = "<group>"; };
-		F676D5AA2A583343008E9400 /* MainTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeaderView.swift; sourceTree = "<group>"; };
-		F676D5AD2A58356E008E9400 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
 		F676D5AF2A583A25008E9400 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F676D5B12A583A64008E9400 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F676D5B32A585446008E9400 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -69,6 +75,14 @@
 		F676D5CF2A5861B9008E9400 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		F676D5D12A5942B6008E9400 /* TMDBRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRepositoryType.swift; sourceTree = "<group>"; };
 		F676D5D32A595281008E9400 /* MovieResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponseDTO.swift; sourceTree = "<group>"; };
+		F676D5FD2A5BE328008E9400 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		F676D5FF2A5BE334008E9400 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F676D6012A5BE33A008E9400 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F676D6042A5BE36C008E9400 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
+		F676D6062A5BE374008E9400 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
+		F676D6082A5BE389008E9400 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
+		F676D6142A5C15E8008E9400 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +94,8 @@
 				F676D5902A582E5D008E9400 /* Then in Frameworks */,
 				F676D5982A582E7D008E9400 /* RxSwift in Frameworks */,
 				F676D5CB2A585EA4008E9400 /* Moya in Frameworks */,
+				F676D6132A5C0CE5008E9400 /* RxDataSources in Frameworks */,
+				F676D6112A5C0CE5008E9400 /* Differentiator in Frameworks */,
 				F676D5932A582E67008E9400 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				F676D5862A582D06008E9400 /* Main */,
+				F676D5FA2A5BE30C008E9400 /* Detail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -152,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				F676D5A72A5832A2008E9400 /* Cell */,
-				F676D58A2A582D85008E9400 /* MainViewController.swift */,
 				F676D58C2A582D8B008E9400 /* MainView.swift */,
+				F676D58A2A582D85008E9400 /* MainViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				F676D5AF2A583A25008E9400 /* MainCollectionViewCell.swift */,
-				F676D5AA2A583343008E9400 /* MainTableViewHeaderView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -214,7 +230,6 @@
 		F676D5AC2A58354B008E9400 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				F676D5AD2A58356E008E9400 /* MovieInfoView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -223,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				F676D5BA2A58593E008E9400 /* Main */,
+				F676D60A2A5BEA26008E9400 /* Detail */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -257,6 +273,7 @@
 		F676D5B92A585914008E9400 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F676D60D2A5BEA4D008E9400 /* Request */,
 				F676D5BD2A585954008E9400 /* Response */,
 			);
 			path = Model;
@@ -299,6 +316,7 @@
 		F676D5C02A5859B0008E9400 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				F676D60E2A5BEA5C008E9400 /* RequestDTO */,
 				F676D5BE2A58598E008E9400 /* ResponseDTO */,
 			);
 			path = DataMapping;
@@ -311,6 +329,74 @@
 				F676D5CF2A5861B9008E9400 /* EndPoint.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F676D5FA2A5BE30C008E9400 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F676D6162A5C2DA1008E9400 /* Model */,
+				F676D5FC2A5BE31F008E9400 /* ViewModel */,
+				F676D5FB2A5BE31C008E9400 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F676D5FB2A5BE31C008E9400 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F676D6032A5BE351008E9400 /* Cell */,
+				F676D5FF2A5BE334008E9400 /* DetailView.swift */,
+				F676D6082A5BE389008E9400 /* DetailHeaderView.swift */,
+				F676D6012A5BE33A008E9400 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F676D5FC2A5BE31F008E9400 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F676D5FD2A5BE328008E9400 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F676D6032A5BE351008E9400 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F676D6042A5BE36C008E9400 /* OverViewTableViewCell.swift */,
+				F676D6062A5BE374008E9400 /* CastTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F676D60A2A5BEA26008E9400 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F676D60D2A5BEA4D008E9400 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		F676D60E2A5BEA5C008E9400 /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RequestDTO;
+			sourceTree = "<group>";
+		};
+		F676D6162A5C2DA1008E9400 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F676D6142A5C15E8008E9400 /* SectionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +421,8 @@
 				F676D5952A582E7D008E9400 /* RxCocoa */,
 				F676D5972A582E7D008E9400 /* RxSwift */,
 				F676D5CA2A585EA4008E9400 /* Moya */,
+				F676D6102A5C0CE5008E9400 /* Differentiator */,
+				F676D6122A5C0CE5008E9400 /* RxDataSources */,
 			);
 			productName = CleanArchitecturePractice;
 			productReference = F676D56A2A582195008E9400 /* CleanArchitecturePractice.app */;
@@ -369,6 +457,7 @@
 				F676D5912A582E67008E9400 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F676D5942A582E7D008E9400 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F676D5C92A585EA4008E9400 /* XCRemoteSwiftPackageReference "Moya" */,
+				F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = F676D56B2A582195008E9400 /* Products */;
 			projectDirPath = "";
@@ -397,29 +486,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				F676D58D2A582D8B008E9400 /* MainView.swift in Sources */,
+				F676D6002A5BE334008E9400 /* DetailView.swift in Sources */,
+				F676D6022A5BE33A008E9400 /* DetailViewController.swift in Sources */,
+				F676D60C2A5BEA41008E9400 /* DetailUseCase.swift in Sources */,
 				F676D56E2A582195008E9400 /* AppDelegate.swift in Sources */,
 				F676D5C82A585DF1008E9400 /* TMDBRepository.swift in Sources */,
-				F676D5AE2A58356E008E9400 /* MovieInfoView.swift in Sources */,
 				F676D5D02A5861B9008E9400 /* EndPoint.swift in Sources */,
-				F676D5AB2A583343008E9400 /* MainTableViewHeaderView.swift in Sources */,
 				F676D5B22A583A64008E9400 /* BaseCollectionViewCell.swift in Sources */,
 				F676D5D42A595281008E9400 /* MovieResponseDTO.swift in Sources */,
 				F676D5B42A585446008E9400 /* MainViewModel.swift in Sources */,
 				F676D5822A582B58008E9400 /* APIKey.swift in Sources */,
 				F676D5A02A582EFB008E9400 /* BaseTableViewCell.swift in Sources */,
 				F676D5B02A583A25008E9400 /* MainCollectionViewCell.swift in Sources */,
+				F676D6092A5BE389008E9400 /* DetailHeaderView.swift in Sources */,
 				F676D59C2A582EF0008E9400 /* BaseView.swift in Sources */,
+				F676D5FE2A5BE328008E9400 /* DetailViewModel.swift in Sources */,
 				F676D5BC2A58594B008E9400 /* MainUseCase.swift in Sources */,
 				F676D5D22A5942B6008E9400 /* TMDBRepositoryType.swift in Sources */,
 				F676D5C62A585CDE008E9400 /* VideoResponse.swift in Sources */,
 				F676D5A62A583031008E9400 /* Cell+Ex.swift in Sources */,
 				F676D5CE2A585F66008E9400 /* TMDBTarget.swift in Sources */,
 				F676D59E2A582EF5008E9400 /* BaseViewController.swift in Sources */,
+				F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */,
 				F676D5C22A585CA7008E9400 /* MovieResponse.swift in Sources */,
 				F676D5702A582195008E9400 /* SceneDelegate.swift in Sources */,
+				F676D6052A5BE36C008E9400 /* OverViewTableViewCell.swift in Sources */,
 				F676D5C42A585CAE008E9400 /* CastResponse.swift in Sources */,
 				F676D58B2A582D85008E9400 /* MainViewController.swift in Sources */,
 				F676D5A32A582F56008E9400 /* Protocol.swift in Sources */,
+				F676D6072A5BE374008E9400 /* CastTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +756,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -688,6 +791,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F676D5C92A585EA4008E9400 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		F676D6102A5C0CE5008E9400 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		F676D6122A5C0CE5008E9400 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

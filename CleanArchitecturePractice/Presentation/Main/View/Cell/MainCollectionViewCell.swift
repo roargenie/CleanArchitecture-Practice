@@ -191,6 +191,8 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
             
             task.resume()
         }
-        
     }
+    
+    
+    
 }

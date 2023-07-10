@@ -13,7 +13,7 @@ final class MainUseCase {
     
     private let tmdbRepository: TMDBRepositoryType
     
-    var succesMovieSignal = PublishRelay<MovieResponse>()
+    var successMovieSignal = PublishRelay<MovieResponse>()
     
     init(tmdbRepository: TMDBRepositoryType) {
         self.tmdbRepository = tmdbRepository
@@ -24,7 +24,7 @@ final class MainUseCase {
             guard let self = self else { return }
             switch response {
             case .success(let movieData):
-                self.succesMovieSignal.accept(movieData)
+                self.successMovieSignal.accept(movieData)
             case .failure(let error):
                 print(error.errorDescription)
             }

@@ -14,7 +14,7 @@ final class MainViewController: BaseViewController {
     private let mainView = MainView()
     private let viewModel: MainViewModel
     private let disposeBag = DisposeBag()
-    private var movieData = [MovieResults]()
+    
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -37,7 +37,8 @@ final class MainViewController: BaseViewController {
     private func bindViewModel() {
         
         let input = MainViewModel.Input(
-            viewDidLoadEvent: Observable.just(()).asSignal(onErrorJustReturn: ()))
+            viewDidLoadEvent: Observable.just(()).asSignal(onErrorJustReturn: ()),
+            itemSelected: mainView.collectionView.rx.modelSelected(MovieResults.self).asSignal())
         let output = viewModel.transform(input: input)
         
         output.movieList
@@ -48,7 +49,17 @@ final class MainViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
             
+        viewModel.moveToDetailVC = { [weak self] data in
+            self?.moveToDetailVC(data: data)
+        }
     }
+    
+    private func moveToDetailVC(data: MovieResults) {
+        let vc = DetailViewController(viewModel: DetailViewModel(detailUseCase: DetailUseCase(tmdbRepository: TMDBRepository())))
+        vc.movieData = data
+        self.present(vc, animated: true)
+    }
+    
     
 }
 

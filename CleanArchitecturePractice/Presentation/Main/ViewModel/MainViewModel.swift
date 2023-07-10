@@ -13,9 +13,11 @@ import RxCocoa
 final class MainViewModel: CommonViewModelType {
     
     private let mainUseCase: MainUseCase
+    var moveToDetailVC: ((MovieResults) -> Void)?
     
     struct Input {
         let viewDidLoadEvent: Signal<Void>
+        let itemSelected: Signal<MovieResults>
     }
     
     struct Output {
@@ -38,7 +40,14 @@ final class MainViewModel: CommonViewModelType {
             })
             .disposed(by: disposeBag)
         
-        mainUseCase.succesMovieSignal
+        input.itemSelected
+            .withUnretained(self)
+            .emit { vm, item in
+                vm.moveToVC(data: item)
+            }
+            .disposed(by: disposeBag)
+        
+        mainUseCase.successMovieSignal
             .asSignal()
             .emit { [weak self] response in
                 print("ViewModel ==🟢", response.results)
@@ -54,5 +63,9 @@ extension MainViewModel {
     
     private func requestMovie() {
         self.mainUseCase.requestMovie()
+    }
+    
+    private func moveToVC(data: MovieResults) {
+        moveToDetailVC?(data)
     }
 }
