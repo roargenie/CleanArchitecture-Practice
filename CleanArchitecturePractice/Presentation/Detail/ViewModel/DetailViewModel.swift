@@ -12,6 +12,8 @@ import RxDataSources
 
 final class DetailViewModel: CommonViewModelType {
     
+    var sections: [MovieSectionModel] = []
+    
     private let detailUseCase: DetailUseCase
     
     struct Input {
@@ -27,42 +29,68 @@ final class DetailViewModel: CommonViewModelType {
     }
     var disposeBag = DisposeBag()
     
-    private let movieList = BehaviorRelay<[MovieSectionModel]>(value: [])
+    let movieList = BehaviorRelay<[MovieSectionModel]>(value: [])
+    let selectedMovie = BehaviorRelay<[MovieList]>(value: [])
+    let castList = BehaviorRelay<[CastResults]>(value: [])
     
     func transform(input: Input) -> Output {
         
         input.viewDidLoadEvent
-            .emit { [weak self] in
+            .emit(onNext: { [weak self] in
                 print("=====🔥DetailViewModel=====")
+                guard let self = self else { return }
+                self.requestCast()
+            })
+            .disposed(by: disposeBag)
+        
+        detailUseCase.successCastSignal
+            .asSignal()
+            .emit { [weak self] response in
+                guard let self = self else { return }
+                self.sections.append(.overview(
+                    header: "Overview",
+                    items: [OverviewSection(items: self.selectedMovie.value)]))
+                self.sections.append(.cast(
+                    header: "Cast",
+                    items: [CastSection(items: response.cast)]))
+                print("Sections=================✅")
+                dump(self.sections[1].items)
+                self.movieList.accept(sections)
             }
             .disposed(by: disposeBag)
         
-        return Output(movieList: movieList.asDriver())
+        return Output(
+            movieList: movieList.asDriver())
     }
     
 }
 
 extension DetailViewModel {
     
+    private func requestCast() {
+        guard let id = selectedMovie.value.first?.id else { return }
+        self.detailUseCase.requestCast(id: id)
+    }
+    
     func datsSource() -> RxTableViewSectionedReloadDataSource<MovieSectionModel> {
         let dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: { dataSource, tableView, indexPath, item in
             
-            switch item {
-            case .overview(let item):
+            switch dataSource[indexPath.section] {
+            case .overview(header: _, items: let items):
                 let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
-                cell.overviewLabel.text = item.movies.overview
+                cell.overviewLabel.text = items.first?.items.first?.overview
                 return cell
-            case .cast(let item):
+            case .cast(header: _, items: let items):
                 let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as! CastTableViewCell
-                cell.nameLabel.text = item.cast[indexPath.row].name
-                cell.characterLabel.text = item.cast[indexPath.row].character
+                cell.setupCell(data: (items.first?.items[indexPath.item])!)
+                
                 return cell
             }
             
         })
         
-        dataSource.titleForHeaderInSection = { dataSource, indexPath in
-            return MovieSection(index: indexPath).headerTitle
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].headers
         }
         
         return dataSource

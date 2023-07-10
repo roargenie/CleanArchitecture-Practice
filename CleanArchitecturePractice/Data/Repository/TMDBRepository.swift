@@ -46,4 +46,16 @@ extension TMDBRepository: TMDBRepositoryType {
         }
     }
     
+    func requestCast(id: Int, completion: @escaping (Result<CastResponse, TMDBNetworkError>) -> Void) {
+        provider.request(.cast(id: id)) { result in
+            switch result {
+            case .success(let response):
+                let data = try? JSONDecoder().decode(CastResponseDTO.self, from: response.data)
+                completion(.success(data!.toDomain()))
+            case .failure(let error):
+                completion(.failure(TMDBNetworkError(rawValue: error.response!.statusCode) ?? .unknown))
+            }
+        }
+    }
+    
 }

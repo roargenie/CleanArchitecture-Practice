@@ -12,4 +12,5 @@ protocol TMDBRepositoryType: AnyObject {
     
     func requestMovie(completion: @escaping (Result<MovieResponse, TMDBNetworkError>) -> Void)
     
+    func requestCast(id: Int, completion: @escaping (Result<CastResponse, TMDBNetworkError>) -> Void)
 }

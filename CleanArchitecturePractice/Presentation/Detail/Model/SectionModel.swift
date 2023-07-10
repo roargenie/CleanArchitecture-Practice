@@ -8,51 +8,58 @@
 import Foundation
 import RxDataSources
 
-protocol DetailSectionModel { }
+protocol MovieSectionItem { }
 
-struct OverviewSection: DetailSectionModel {
-    var movies: MovieResults
+struct OverviewSection: MovieSectionItem {
+    var items: [MovieList]
 }
 
-struct CastSection: DetailSectionModel {
-    var cast: [CastResults]
+struct MovieList {
+    var adult: Bool
+    var id: Int
+    var title: String
+    var release_date: String
+    var overview: String
+    var poster_path: String
+    var backdrop_path: String
+    var genre_ids: [Int]
+    var vote_average: Double
 }
 
-typealias MovieSectionModel = SectionModel<MovieSection, MovieItem>
+struct CastSection: MovieSectionItem {
+    var items: [CastResults]
+}
 
-enum MovieSection: Int, Equatable {
-    case overview
-    case cast
+enum MovieSectionModel {
+    case overview(header: String, items: [OverviewSection])
+    case cast(header: String, items: [CastSection])
+}
 
-    init(index: Int) {
-        switch index {
-        case 0: self = .overview
-        default: self = .cast
-        }
+extension MovieSectionModel: SectionModelType {
+    
+    typealias Item = MovieSectionItem
+    
+    init(original: MovieSectionModel, items: [Item]) {
+        self = original
     }
-
-    var headerTitle: String {
+    
+    var headers: String? {
+        if case let .overview(header, _) = self {
+            return header
+        }
+        if case let .cast(header, _) = self {
+            return header
+        }
+        return nil
+    }
+    
+    var items: [Item] {
         switch self {
-        case .overview:
-            return "Overview"
-        case .cast:
-            return "Cast"
+        case let .overview(_, items):
+            return items
+        case let .cast(_, items):
+            return items
         }
     }
     
-}
-
-enum MovieItem {
-    
-    case overview(OverviewSection)
-    case cast(CastSection)
-
-    var detail: DetailSectionModel {
-        switch self {
-        case .overview(let item):
-            return item
-        case .cast(let item):
-            return item
-        }
-    }
 }

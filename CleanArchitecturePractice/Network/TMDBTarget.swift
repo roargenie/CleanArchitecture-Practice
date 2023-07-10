@@ -13,7 +13,7 @@ typealias DictionaryType = [String: Any]
 enum TMDBTarget {
     case trendingMovie
     case genre
-    case cast
+    case cast(id: Int)
     case video
 }
 
@@ -32,8 +32,8 @@ extension TMDBTarget: TargetType {
             return "trending/movie/week"
         case .genre:
             return ""
-        case .cast:
-            return ""
+        case .cast(let id):
+            return "movie/\(id)/credits"
         case .video:
             return ""
         }
@@ -48,7 +48,7 @@ extension TMDBTarget: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .trendingMovie:
+        case .trendingMovie, .cast:
             return .requestParameters(
                 parameters: ["api_key": APIKey.TMDB],
                 encoding: URLEncoding.queryString)

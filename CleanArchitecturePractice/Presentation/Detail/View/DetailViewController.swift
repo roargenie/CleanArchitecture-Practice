@@ -12,10 +12,8 @@ import RxDataSources
 
 final class DetailViewController: BaseViewController {
     
-    var movieData: MovieResults?
-    
     private let mainView = DetailView()
-    private let viewModel: DetailViewModel
+    let viewModel: DetailViewModel
     private let disposeBag = DisposeBag()
     
     init(viewModel: DetailViewModel) {
@@ -39,7 +37,8 @@ final class DetailViewController: BaseViewController {
     override func configureUI() {
 //        mainView.tableView.delegate = self
 //        mainView.tableView.dataSource = self
-        mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+//        mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        mainView.setupHeaderView(data: viewModel.selectedMovie.value.first!)
     }
     
     private func bindViewModel() {
@@ -56,33 +55,33 @@ final class DetailViewController: BaseViewController {
     }
 }
 
-extension DetailViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        return UITableViewCell()
-    }
-    
-}
-
-extension DetailViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Overview"
-        case 1:
-            return "Cast"
-        default:
-            return ""
-        }
-    }
-    
-}
+//extension DetailViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 2
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        return UITableViewCell()
+//    }
+//
+//}
+//
+//extension DetailViewController: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        switch section {
+//        case 0:
+//            return "Overview"
+//        case 1:
+//            return "Cast"
+//        default:
+//            return ""
+//        }
+//    }
+//
+//}

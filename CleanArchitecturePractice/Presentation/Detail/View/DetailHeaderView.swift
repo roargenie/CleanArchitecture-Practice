@@ -10,28 +10,22 @@ import UIKit
 
 final class DetailHeaderView: UIView {
     
-    static let identifier = "DetailHeaderView"
-    
     let backgroundImageView: UIImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
-        $0.backgroundColor = .red
+        $0.clipsToBounds = true
     }
     
     let backgroundPosterImageView: UIImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .yellow
+        $0.contentMode = .scaleToFill
     }
     
     let movieTitleLabel: UILabel = UILabel().then {
-        $0.text = "Guardians of the Galaxy"
         $0.textColor = .white
         $0.font = .systemFont(ofSize: 30, weight: .bold)
-        $0.backgroundColor = .green
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .blue
         configureUI()
         setConstraints()
     }
@@ -60,6 +54,39 @@ final class DetailHeaderView: UIView {
             make.horizontalEdges.equalTo(backgroundImageView.snp.horizontalEdges).inset(12)
             make.top.equalTo(backgroundImageView.snp.top).inset(12)
             make.height.equalTo(36)
+        }
+    }
+    
+    func setupHeaderView(data: MovieList) {
+        let url = "https://image.tmdb.org/t/p/w220_and_h330_face"
+        loadImage(urlString: "\(url)\(data.backdrop_path)") { [weak self] image in
+            self?.backgroundImageView.image = image
+        }
+        
+        loadImage(urlString: "\(url)\(data.poster_path)") { [weak self] image in
+            self?.backgroundPosterImageView.image = image
+        }
+        
+        movieTitleLabel.text = data.title
+    }
+    
+    private func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        DispatchQueue.global().async {
+            if let imageData = try? Data(contentsOf: url),
+               let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
         }
     }
 }

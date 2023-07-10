@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct CastModel: Codable {
+struct CastResponse {
     var id: Int
     var cast: [CastResults]
 }
 
-struct CastResults: Codable {
+struct CastResults {
     var name: String
     var profile_path: String?
     var character: String

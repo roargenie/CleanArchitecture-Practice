@@ -172,9 +172,8 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         setImage(image: data)
     }
     
-    func setImage(image: MovieResults) {
+    private func setImage(image: MovieResults) {
         let urlString = "https://image.tmdb.org/t/p/w220_and_h330_face\(image.poster_path)"
-        
         
         if let imageURL = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
@@ -192,7 +191,5 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
             task.resume()
         }
     }
-    
-    
     
 }

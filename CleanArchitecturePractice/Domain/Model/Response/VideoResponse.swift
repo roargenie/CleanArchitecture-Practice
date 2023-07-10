@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Video: Codable {
+struct Video {
     var id: Int
     var results: [VideoResults]
 }
 
-struct VideoResults: Codable {
+struct VideoResults {
     var key: String
     var site: String
     var type: String

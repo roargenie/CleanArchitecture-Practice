@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct MovieResponse: Codable {
+struct MovieResponse {
     var page: Int
     var results: [MovieResults]
     var total_pages: Int
     var total_results: Int
 }
 
-struct MovieResults: Codable {
+struct MovieResults {
     var adult: Bool
     var id: Int
     var title: String

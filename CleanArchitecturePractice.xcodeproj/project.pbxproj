@@ -46,6 +46,7 @@
 		F676D6112A5C0CE5008E9400 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F676D6102A5C0CE5008E9400 /* Differentiator */; };
 		F676D6132A5C0CE5008E9400 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F676D6122A5C0CE5008E9400 /* RxDataSources */; };
 		F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6142A5C15E8008E9400 /* SectionModel.swift */; };
+		F676D6182A5C6EED008E9400 /* CastResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		F676D6082A5BE389008E9400 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		F676D6142A5C15E8008E9400 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				F676D5D32A595281008E9400 /* MovieResponseDTO.swift */,
+				F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				F676D5D22A5942B6008E9400 /* TMDBRepositoryType.swift in Sources */,
 				F676D5C62A585CDE008E9400 /* VideoResponse.swift in Sources */,
 				F676D5A62A583031008E9400 /* Cell+Ex.swift in Sources */,
+				F676D6182A5C6EED008E9400 /* CastResponseDTO.swift in Sources */,
 				F676D5CE2A585F66008E9400 /* TMDBTarget.swift in Sources */,
 				F676D59E2A582EF5008E9400 /* BaseViewController.swift in Sources */,
 				F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */,

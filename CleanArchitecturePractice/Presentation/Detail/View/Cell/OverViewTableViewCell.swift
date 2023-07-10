@@ -16,6 +16,7 @@ final class OverViewTableViewCell: BaseTableViewCell {
     
     let moreViewButton: UIButton = UIButton().then {
         $0.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        $0.tintColor = .black
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
