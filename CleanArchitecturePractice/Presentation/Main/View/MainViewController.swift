@@ -56,7 +56,6 @@ final class MainViewController: BaseViewController {
     
     private func moveToDetailVC(data: MovieResults) {
         let vc = DetailViewController(viewModel: DetailViewModel(detailUseCase: DetailUseCase(tmdbRepository: TMDBRepository())))
-        let data = MovieList(adult: data.adult, id: data.id, title: data.title, release_date: data.release_date, overview: data.overview, poster_path: data.poster_path, backdrop_path: data.backdrop_path, genre_ids: data.genre_ids, vote_average: data.vote_average)
         vc.viewModel.selectedMovie.accept([data])
         self.present(vc, animated: true)
     }

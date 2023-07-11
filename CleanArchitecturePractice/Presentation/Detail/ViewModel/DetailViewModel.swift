@@ -30,7 +30,7 @@ final class DetailViewModel: CommonViewModelType {
     var disposeBag = DisposeBag()
     
     let movieList = BehaviorRelay<[MovieSectionModel]>(value: [])
-    let selectedMovie = BehaviorRelay<[MovieList]>(value: [])
+    let selectedMovie = BehaviorRelay<[MovieResults]>(value: [])
     let castList = BehaviorRelay<[CastResults]>(value: [])
     
     func transform(input: Input) -> Output {
@@ -47,15 +47,7 @@ final class DetailViewModel: CommonViewModelType {
             .asSignal()
             .emit { [weak self] response in
                 guard let self = self else { return }
-                self.sections.append(.overview(
-                    header: "Overview",
-                    items: [OverviewSection(items: self.selectedMovie.value)]))
-                self.sections.append(.cast(
-                    header: "Cast",
-                    items: [CastSection(items: response.cast)]))
-                print("Sections=================✅")
-                dump(self.sections[1].items)
-                self.movieList.accept(sections)
+                self.makeSectionModel(response: response)
             }
             .disposed(by: disposeBag)
         
@@ -72,18 +64,36 @@ extension DetailViewModel {
         self.detailUseCase.requestCast(id: id)
     }
     
+    private func makeToSectionModelType(response: CastResponse) -> [[MovieSectionItem]] {
+        let overviewSection = selectedMovie.value.map {
+            MovieSectionItem.OverviewItem(response: $0)
+        }
+        let castSection = response.cast.map {
+            MovieSectionItem.CastviewItem(response: $0)
+        }
+        return [overviewSection, castSection]
+    }
+    
+    private func makeSectionModel(response: CastResponse) {
+        let sectionData = makeToSectionModelType(response: response)
+        let overviewData = MovieSectionModel.overview(header: "Overview", items: sectionData[0])
+        let castData = MovieSectionModel.cast(header: "Cast", items: sectionData[1])
+        self.sections.append(overviewData)
+        self.sections.append(castData)
+        self.movieList.accept(sections)
+    }
+    
     func datsSource() -> RxTableViewSectionedReloadDataSource<MovieSectionModel> {
         let dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: { dataSource, tableView, indexPath, item in
             
-            switch dataSource[indexPath.section] {
-            case .overview(header: _, items: let items):
+            switch item {
+            case .OverviewItem(response: let data):
                 let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
-                cell.overviewLabel.text = items.first?.items.first?.overview
+                cell.overviewLabel.text = data.overview
                 return cell
-            case .cast(header: _, items: let items):
+            case .CastviewItem(response: let data):
                 let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as! CastTableViewCell
-                cell.setupCell(data: (items.first?.items[indexPath.item])!)
-                
+                cell.setupCell(data: data)
                 return cell
             }
             

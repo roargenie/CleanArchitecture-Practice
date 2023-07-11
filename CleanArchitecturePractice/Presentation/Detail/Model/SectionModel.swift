@@ -8,31 +8,14 @@
 import Foundation
 import RxDataSources
 
-protocol MovieSectionItem { }
-
-struct OverviewSection: MovieSectionItem {
-    var items: [MovieList]
-}
-
-struct MovieList {
-    var adult: Bool
-    var id: Int
-    var title: String
-    var release_date: String
-    var overview: String
-    var poster_path: String
-    var backdrop_path: String
-    var genre_ids: [Int]
-    var vote_average: Double
-}
-
-struct CastSection: MovieSectionItem {
-    var items: [CastResults]
+enum MovieSectionItem {
+    case OverviewItem(response: MovieResults)
+    case CastviewItem(response: CastResults)
 }
 
 enum MovieSectionModel {
-    case overview(header: String, items: [OverviewSection])
-    case cast(header: String, items: [CastSection])
+    case overview(header: String, items: [MovieSectionItem])
+    case cast(header: String, items: [MovieSectionItem])
 }
 
 extension MovieSectionModel: SectionModelType {
@@ -40,7 +23,12 @@ extension MovieSectionModel: SectionModelType {
     typealias Item = MovieSectionItem
     
     init(original: MovieSectionModel, items: [Item]) {
-        self = original
+        switch original {
+        case .overview(let header, let items):
+            self = .overview(header: header, items: items)
+        case .cast(let header, let items):
+            self = .cast(header: header, items: items)
+        }
     }
     
     var headers: String? {

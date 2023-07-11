@@ -57,7 +57,7 @@ final class DetailHeaderView: UIView {
         }
     }
     
-    func setupHeaderView(data: MovieList) {
+    func setupHeaderView(data: MovieResults) {
         let url = "https://image.tmdb.org/t/p/w220_and_h330_face"
         loadImage(urlString: "\(url)\(data.backdrop_path)") { [weak self] image in
             self?.backgroundImageView.image = image

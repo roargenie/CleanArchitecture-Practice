@@ -34,7 +34,7 @@ final class DetailView: BaseView {
         }
     }
     
-    func setupHeaderView(data: MovieList) {
+    func setupHeaderView(data: MovieResults) {
         if let headerView = tableHeaderView as? DetailHeaderView {
             headerView.setupHeaderView(data: data)
         }
