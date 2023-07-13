@@ -12,7 +12,7 @@ import RxDataSources
 
 final class DetailViewModel: CommonViewModelType {
     
-    var sections: [MovieSectionModel] = []
+    private var sections: [MovieSectionModel] = []
     
     private let detailUseCase: DetailUseCase
     
@@ -29,9 +29,8 @@ final class DetailViewModel: CommonViewModelType {
     }
     var disposeBag = DisposeBag()
     
-    let movieList = BehaviorRelay<[MovieSectionModel]>(value: [])
+    private let movieList = BehaviorRelay<[MovieSectionModel]>(value: [])
     let selectedMovie = BehaviorRelay<[MovieResults]>(value: [])
-    let castList = BehaviorRelay<[CastResults]>(value: [])
     
     func transform(input: Input) -> Output {
         
@@ -76,8 +75,12 @@ extension DetailViewModel {
     
     private func makeSectionModel(response: CastResponse) {
         let sectionData = makeToSectionModelType(response: response)
-        let overviewData = MovieSectionModel.overview(header: "Overview", items: sectionData[0])
-        let castData = MovieSectionModel.cast(header: "Cast", items: sectionData[1])
+        let overviewData = MovieSectionModel.overview(
+            header: "Overview",
+            items: sectionData[0])
+        let castData = MovieSectionModel.cast(
+            header: "Cast",
+            items: sectionData[1])
         self.sections.append(overviewData)
         self.sections.append(castData)
         self.movieList.accept(sections)

@@ -35,9 +35,6 @@ final class DetailViewController: BaseViewController {
     }
     
     override func configureUI() {
-//        mainView.tableView.delegate = self
-//        mainView.tableView.dataSource = self
-//        mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         mainView.setupHeaderView(data: viewModel.selectedMovie.value.first!)
     }
     

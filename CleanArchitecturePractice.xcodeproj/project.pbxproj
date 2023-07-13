@@ -47,6 +47,8 @@
 		F676D6132A5C0CE5008E9400 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F676D6122A5C0CE5008E9400 /* RxDataSources */; };
 		F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6142A5C15E8008E9400 /* SectionModel.swift */; };
 		F676D6182A5C6EED008E9400 /* CastResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */; };
+		F676D61A2A5D7B02008E9400 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6192A5D7B02008E9400 /* GenreResponse.swift */; };
+		F676D61C2A5D7B46008E9400 /* GenreResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D61B2A5D7B45008E9400 /* GenreResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		F676D6142A5C15E8008E9400 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponseDTO.swift; sourceTree = "<group>"; };
+		F676D6192A5D7B02008E9400 /* GenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
+		F676D61B2A5D7B45008E9400 /* GenreResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +135,8 @@
 				F676D5992A582EB4008E9400 /* Utillity */,
 				F676D5CC2A585F4C008E9400 /* Network */,
 				F676D5B82A585910008E9400 /* Domain */,
-				F676D5852A582CF9008E9400 /* Presentation */,
 				F676D5B72A585849008E9400 /* Data */,
+				F676D5852A582CF9008E9400 /* Presentation */,
 				F676D5762A582196008E9400 /* Assets.xcassets */,
 				F676D5782A582196008E9400 /* LaunchScreen.storyboard */,
 				F676D57B2A582196008E9400 /* Info.plist */,
@@ -293,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				F676D5C12A585CA7008E9400 /* MovieResponse.swift */,
+				F676D6192A5D7B02008E9400 /* GenreResponse.swift */,
 				F676D5C32A585CAE008E9400 /* CastResponse.swift */,
 				F676D5C52A585CDE008E9400 /* VideoResponse.swift */,
 			);
@@ -304,6 +309,7 @@
 			children = (
 				F676D5D32A595281008E9400 /* MovieResponseDTO.swift */,
 				F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */,
+				F676D61B2A5D7B45008E9400 /* GenreResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -502,11 +508,13 @@
 				F676D5A02A582EFB008E9400 /* BaseTableViewCell.swift in Sources */,
 				F676D5B02A583A25008E9400 /* MainCollectionViewCell.swift in Sources */,
 				F676D6092A5BE389008E9400 /* DetailHeaderView.swift in Sources */,
+				F676D61A2A5D7B02008E9400 /* GenreResponse.swift in Sources */,
 				F676D59C2A582EF0008E9400 /* BaseView.swift in Sources */,
 				F676D5FE2A5BE328008E9400 /* DetailViewModel.swift in Sources */,
 				F676D5BC2A58594B008E9400 /* MainUseCase.swift in Sources */,
 				F676D5D22A5942B6008E9400 /* TMDBRepositoryType.swift in Sources */,
 				F676D5C62A585CDE008E9400 /* VideoResponse.swift in Sources */,
+				F676D61C2A5D7B46008E9400 /* GenreResponseDTO.swift in Sources */,
 				F676D5A62A583031008E9400 /* Cell+Ex.swift in Sources */,
 				F676D6182A5C6EED008E9400 /* CastResponseDTO.swift in Sources */,
 				F676D5CE2A585F66008E9400 /* TMDBTarget.swift in Sources */,

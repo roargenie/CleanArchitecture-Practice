@@ -13,6 +13,7 @@ import RxCocoa
 final class MainViewModel: CommonViewModelType {
     
     private let mainUseCase: MainUseCase
+    var castList = [[CastResults]]()
     var moveToDetailVC: ((MovieResults) -> Void)?
     
     struct Input {
@@ -22,6 +23,7 @@ final class MainViewModel: CommonViewModelType {
     
     struct Output {
         let movieList: Driver<[MovieResults]>
+        let genreList: Driver<[GenreResults]>
     }
     
     init(mainUseCase: MainUseCase) {
@@ -30,13 +32,18 @@ final class MainViewModel: CommonViewModelType {
     var disposeBag = DisposeBag()
     
     private let movieList = BehaviorRelay<[MovieResults]>(value: [])
+    private let genreList = BehaviorRelay<[GenreResults]>(value: [])
     
     func transform(input: Input) -> Output {
         
         input.viewDidLoadEvent
             .emit(onNext: { [weak self] in
                 print("=======🔥ViewModel ViewDidLoad Event======")
-                self?.requestMovie()
+//                self?.requestGenre()
+//                self?.requestMovie()
+                self?.requestMovieAndGenre()
+                self?.makeCastData()
+//                self?.castList = self?.mainUseCase.successCast ?? []
             })
             .disposed(by: disposeBag)
         
@@ -44,6 +51,13 @@ final class MainViewModel: CommonViewModelType {
             .withUnretained(self)
             .emit { vm, item in
                 vm.moveToVC(data: item)
+            }
+            .disposed(by: disposeBag)
+        
+        mainUseCase.successGenreSignal
+            .asSignal()
+            .emit { [weak self] response in
+                self?.genreList.accept(response.genres)
             }
             .disposed(by: disposeBag)
         
@@ -55,14 +69,28 @@ final class MainViewModel: CommonViewModelType {
             }
             .disposed(by: disposeBag)
         
-        return Output(movieList: movieList.asDriver())
+        return Output(
+            movieList: movieList.asDriver(),
+            genreList: genreList.asDriver())
     }
 }
 
 extension MainViewModel {
     
+    private func makeCastData() {
+        self.castList = self.mainUseCase.successCast
+    }
+    
+    private func requestMovieAndGenre() {
+        self.mainUseCase.requestMovieAndGenre()
+    }
+    
     private func requestMovie() {
         self.mainUseCase.requestMovie()
+    }
+    
+    private func requestGenre() {
+        self.mainUseCase.requestGenre()
     }
     
     private func moveToVC(data: MovieResults) {

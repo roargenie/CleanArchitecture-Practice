@@ -31,7 +31,7 @@ extension TMDBTarget: TargetType {
         case .trendingMovie:
             return "trending/movie/week"
         case .genre:
-            return ""
+            return "genre/movie/list"
         case .cast(let id):
             return "movie/\(id)/credits"
         case .video:
@@ -48,7 +48,7 @@ extension TMDBTarget: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .trendingMovie, .cast:
+        case .trendingMovie, .cast, .genre:
             return .requestParameters(
                 parameters: ["api_key": APIKey.TMDB],
                 encoding: URLEncoding.queryString)

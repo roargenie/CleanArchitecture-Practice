@@ -18,7 +18,6 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
     }
     
     let movieGenreLabel: UILabel = UILabel().then {
-        $0.text = "Action"
         $0.font = .systemFont(ofSize: 20, weight: .bold)
         $0.textColor = .black
     }
@@ -42,7 +41,6 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 8
-        $0.backgroundColor = .yellow
     }
     
     let rateLabel: UILabel = UILabel().then {
@@ -109,7 +107,7 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         
         movieGenreLabel.snp.makeConstraints { make in
             make.top.equalTo(releaseDateLabel.snp.bottom).offset(4)
-            make.leading.equalToSuperview().offset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
         }
         
         movieView.snp.makeConstraints { make in
@@ -165,7 +163,17 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func setupCell(data: MovieResults) {
+    func setupCell(data: MovieResults, genre: [Int: String]) {
+        var genreText = ""
+        for id in data.genre_ids {
+            if genre.keys.contains(id) {
+                genreText += "#\(genre[id] ?? "") "
+            }
+        }
+        var castText = ""
+        
+//        castingCharactersLabel.text =
+        movieGenreLabel.text = genreText
         releaseDateLabel.text = data.release_date
         movieTitleLabel.text = data.title
         rateNumberLabel.text = String(format: "%.1f", data.vote_average)

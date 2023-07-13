@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 final class OverViewTableViewCell: BaseTableViewCell {
     
+    private let moreViewButtonIsSelected = BehaviorRelay<Bool>(value: false)
+    private let disposeBag = DisposeBag()
+    
     let overviewLabel: UILabel = UILabel().then {
-        $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 14)
     }
     
@@ -21,10 +25,11 @@ final class OverViewTableViewCell: BaseTableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        bindCell()
     }
     
     override func configureUI() {
-        [overviewLabel, moreViewButton].forEach { addSubview($0) }
+        [overviewLabel, moreViewButton].forEach { contentView.addSubview($0) }
     }
     
     override func setConstraints() {
@@ -41,4 +46,28 @@ final class OverViewTableViewCell: BaseTableViewCell {
             make.height.equalTo(24)
         }
     }
+    
+    private func bindCell() {
+        moreViewButton.rx.tap
+            .withUnretained(self)
+            .bind { cell, _ in
+                cell.moreViewButtonIsSelected.accept(!cell.moreViewButtonIsSelected.value)
+            }
+            .disposed(by: disposeBag)
+        
+        moreViewButtonIsSelected
+            .withUnretained(self)
+            .bind { cell, value in
+                cell.updateUI(isSelected: value)
+            }
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func updateUI(isSelected: Bool) {
+        let buttonImage = isSelected ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
+        moreViewButton.setImage(buttonImage, for: .normal)
+        overviewLabel.numberOfLines = isSelected ? 0 : 2
+    }
+    
 }

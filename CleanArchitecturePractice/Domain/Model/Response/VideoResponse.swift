@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Video {
+struct VideoResponse {
     var id: Int
     var results: [VideoResults]
 }

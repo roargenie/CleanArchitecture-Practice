@@ -14,6 +14,7 @@ final class MainViewController: BaseViewController {
     private let mainView = MainView()
     private let viewModel: MainViewModel
     private let disposeBag = DisposeBag()
+    private var genreList: [Int: String] = [:]
     
     
     init(viewModel: MainViewModel) {
@@ -41,10 +42,16 @@ final class MainViewController: BaseViewController {
             itemSelected: mainView.collectionView.rx.modelSelected(MovieResults.self).asSignal())
         let output = viewModel.transform(input: input)
         
+        output.genreList
+            .drive { [weak self] result in
+                result.forEach { self?.genreList.updateValue($0.name, forKey: $0.id) }
+            }
+            .disposed(by: disposeBag)
+            
         output.movieList
             .drive(mainView.collectionView.rx.items) { (cv, index, item) -> UICollectionViewCell in
                 guard let cell = cv.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseIdentifier, for: IndexPath.init(item: index, section: 0)) as? MainCollectionViewCell else { return UICollectionViewCell() }
-                cell.setupCell(data: item)
+                cell.setupCell(data: item, genre: self.genreList)
                 return cell
             }
             .disposed(by: disposeBag)
