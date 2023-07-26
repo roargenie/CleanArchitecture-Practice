@@ -96,11 +96,7 @@ extension DetailViewModel {
 //            case .OverviewItem(response: let data):
 //                let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
 //                cell.overviewLabel.text = data.overview
-////                cell.moreViewButtonIsSelected
-////                    .bind { value in
-////                        cell.updateUI(isSelected: value)
-////                    }
-////                    .disposed(by: self.disposeBag)
+//                cell.setViewModel(DetailViewModel(detailUseCase: self.detailUseCase))
 //                return cell
 //            case .CastviewItem(response: let data):
 //                let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as! CastTableViewCell

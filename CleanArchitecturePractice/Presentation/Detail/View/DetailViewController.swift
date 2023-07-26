@@ -15,6 +15,7 @@ final class DetailViewController: BaseViewController {
     private let mainView = DetailView()
     let viewModel: DetailViewModel
     private let disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<MovieSectionModel>!
     
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
@@ -31,6 +32,7 @@ final class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDataSource()
         bindViewModel()
     }
     
@@ -46,7 +48,7 @@ final class DetailViewController: BaseViewController {
         let output = viewModel.transform(input: input)
             
         output.movieList
-            .drive(mainView.tableView.rx.items(dataSource: dataSource()))
+            .drive(mainView.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         output.moreViewButtonIsSelected
@@ -57,8 +59,14 @@ final class DetailViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    private func dataSource() -> RxTableViewSectionedReloadDataSource<MovieSectionModel> {
-        let dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: {  dataSource, tableView, indexPath, item in
+    
+}
+
+extension DetailViewController {
+    
+    private func configureDataSource() {
+        dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: { [weak self] dataSource, tableView, indexPath, item in
+            guard let self = self else { return UITableViewCell() }
             switch item {
             case .OverviewItem(response: let data):
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
@@ -70,14 +78,12 @@ final class DetailViewController: BaseViewController {
                 cell.setupCell(data: data)
                 return cell
             }
-            
+
         })
-        
+
         dataSource.titleForHeaderInSection = { dataSource, index in
             return dataSource.sectionModels[index].headers
         }
-        
-        return dataSource
     }
 }
 
