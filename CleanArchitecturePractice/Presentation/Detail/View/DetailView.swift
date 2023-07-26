@@ -17,7 +17,7 @@ final class DetailView: BaseView {
         $0.tableHeaderView = tableHeaderView
         $0.register(OverViewTableViewCell.self, forCellReuseIdentifier: OverViewTableViewCell.reuseIdentifier)
         $0.register(CastTableViewCell.self, forCellReuseIdentifier: CastTableViewCell.reuseIdentifier)
-        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = UITableView.automaticDimension
     }
     
     override init(frame: CGRect) {

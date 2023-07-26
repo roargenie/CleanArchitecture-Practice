@@ -36,6 +36,7 @@ final class DetailViewController: BaseViewController {
     
     override func configureUI() {
         mainView.setupHeaderView(data: viewModel.selectedMovie.value.first!)
+        mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
     private func bindViewModel() {
@@ -45,9 +46,52 @@ final class DetailViewController: BaseViewController {
         let output = viewModel.transform(input: input)
             
         output.movieList
-            .drive(mainView.tableView.rx.items(dataSource: viewModel.datsSource()))
+            .drive(mainView.tableView.rx.items(dataSource: dataSource()))
             .disposed(by: disposeBag)
         
+        output.moreViewButtonIsSelected
+            .withUnretained(self)
+            .emit { vc, _ in
+                vc.mainView.tableView.reloadData()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func dataSource() -> RxTableViewSectionedReloadDataSource<MovieSectionModel> {
+        let dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: {  dataSource, tableView, indexPath, item in
+            switch item {
+            case .OverviewItem(response: let data):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
+                cell.overviewLabel.text = data.overview
+                cell.setViewModel(self.viewModel)
+                return cell
+            case .CastviewItem(response: let data):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+                cell.setupCell(data: data)
+                return cell
+            }
+            
+        })
+        
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].headers
+        }
+        
+        return dataSource
+    }
+}
+
+extension DetailViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        switch indexPath.section {
+        case 0:
+            return UITableView.automaticDimension
+        default:
+            return UITableView.automaticDimension
+        }
         
     }
+
 }

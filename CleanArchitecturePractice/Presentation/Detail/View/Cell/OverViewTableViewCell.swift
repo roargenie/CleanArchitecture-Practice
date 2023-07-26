@@ -11,7 +11,8 @@ import RxRelay
 
 final class OverViewTableViewCell: BaseTableViewCell {
     
-    private let moreViewButtonIsSelected = BehaviorRelay<Bool>(value: false)
+    let moreViewButtonIsSelected = BehaviorRelay<Bool>(value: false)
+    private var viewModel: DetailViewModel?
     private let disposeBag = DisposeBag()
     
     let overviewLabel: UILabel = UILabel().then {
@@ -47,6 +48,24 @@ final class OverViewTableViewCell: BaseTableViewCell {
         }
     }
     
+//    func updateConstraints(isSelected: Bool) {
+//        if isSelected {
+//            overviewLabel.snp.removeConstraints()
+//            overviewLabel.snp.makeConstraints { make in
+//                make.top.equalToSuperview().offset(4)
+//                make.horizontalEdges.equalToSuperview().inset(12)
+//                make.height.equalTo(100)
+//            }
+//        } else {
+//            overviewLabel.snp.removeConstraints()
+//            overviewLabel.snp.makeConstraints { make in
+//                make.top.equalToSuperview().offset(4)
+//                make.horizontalEdges.equalToSuperview().inset(12)
+//                make.height.equalTo(30)
+//            }
+//        }
+//    }
+    
     private func bindCell() {
         moreViewButton.rx.tap
             .withUnretained(self)
@@ -58,16 +77,23 @@ final class OverViewTableViewCell: BaseTableViewCell {
         moreViewButtonIsSelected
             .withUnretained(self)
             .bind { cell, value in
+                cell.viewModel?.moreViewButtonIsSelected.accept(value)
                 cell.updateUI(isSelected: value)
             }
             .disposed(by: disposeBag)
         
     }
     
-    private func updateUI(isSelected: Bool) {
+    func updateUI(isSelected: Bool) {
         let buttonImage = isSelected ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
         moreViewButton.setImage(buttonImage, for: .normal)
         overviewLabel.numberOfLines = isSelected ? 0 : 2
+//        updateConstraints(isSelected: isSelected)
+//        layoutIfNeeded()
+    }
+    
+    func setViewModel(_ viewModel: DetailViewModel) {
+        self.viewModel = viewModel
     }
     
 }

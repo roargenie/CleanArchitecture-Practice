@@ -22,6 +22,7 @@ final class DetailViewModel: CommonViewModelType {
     
     struct Output {
         let movieList: Driver<[MovieSectionModel]>
+        let moreViewButtonIsSelected: Signal<Bool>
     }
     
     init(detailUseCase: DetailUseCase) {
@@ -31,6 +32,7 @@ final class DetailViewModel: CommonViewModelType {
     
     private let movieList = BehaviorRelay<[MovieSectionModel]>(value: [])
     let selectedMovie = BehaviorRelay<[MovieResults]>(value: [])
+    let moreViewButtonIsSelected = PublishRelay<Bool>()
     
     func transform(input: Input) -> Output {
         
@@ -51,7 +53,8 @@ final class DetailViewModel: CommonViewModelType {
             .disposed(by: disposeBag)
         
         return Output(
-            movieList: movieList.asDriver())
+            movieList: movieList.asDriver(),
+            moreViewButtonIsSelected: moreViewButtonIsSelected.asSignal())
     }
     
 }
@@ -86,26 +89,31 @@ extension DetailViewModel {
         self.movieList.accept(sections)
     }
     
-    func datsSource() -> RxTableViewSectionedReloadDataSource<MovieSectionModel> {
-        let dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: { dataSource, tableView, indexPath, item in
-            
-            switch item {
-            case .OverviewItem(response: let data):
-                let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
-                cell.overviewLabel.text = data.overview
-                return cell
-            case .CastviewItem(response: let data):
-                let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as! CastTableViewCell
-                cell.setupCell(data: data)
-                return cell
-            }
-            
-        })
-        
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].headers
-        }
-        
-        return dataSource
-    }
+//    func dataSource() -> RxTableViewSectionedReloadDataSource<MovieSectionModel> {
+//        let dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: { dataSource, tableView, indexPath, item in
+//
+//            switch item {
+//            case .OverviewItem(response: let data):
+//                let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
+//                cell.overviewLabel.text = data.overview
+////                cell.moreViewButtonIsSelected
+////                    .bind { value in
+////                        cell.updateUI(isSelected: value)
+////                    }
+////                    .disposed(by: self.disposeBag)
+//                return cell
+//            case .CastviewItem(response: let data):
+//                let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.reuseIdentifier, for: indexPath) as! CastTableViewCell
+//                cell.setupCell(data: data)
+//                return cell
+//            }
+//
+//        })
+//
+//        dataSource.titleForHeaderInSection = { dataSource, index in
+//            return dataSource.sectionModels[index].headers
+//        }
+//
+//        return dataSource
+//    }
 }
