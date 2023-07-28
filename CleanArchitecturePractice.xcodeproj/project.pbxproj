@@ -49,6 +49,21 @@
 		F676D6182A5C6EED008E9400 /* CastResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */; };
 		F676D61A2A5D7B02008E9400 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D6192A5D7B02008E9400 /* GenreResponse.swift */; };
 		F676D61C2A5D7B46008E9400 /* GenreResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676D61B2A5D7B45008E9400 /* GenreResponseDTO.swift */; };
+		F6D3D23E2A7388EB00FE38B3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F6D3D23D2A7388EB00FE38B3 /* Realm */; };
+		F6D3D2402A7388EB00FE38B3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F6D3D23F2A7388EB00FE38B3 /* RealmSwift */; };
+		F6D3D2432A7389BC00FE38B3 /* TabBarPageCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2422A7389BC00FE38B3 /* TabBarPageCase.swift */; };
+		F6D3D2492A738A4800FE38B3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2482A738A4800FE38B3 /* Coordinator.swift */; };
+		F6D3D24B2A738A4E00FE38B3 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D24A2A738A4E00FE38B3 /* CoordinatorDelegate.swift */; };
+		F6D3D24D2A738A5500FE38B3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D24C2A738A5500FE38B3 /* AppCoordinator.swift */; };
+		F6D3D24F2A738C0500FE38B3 /* CoordinatorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D24E2A738C0500FE38B3 /* CoordinatorCase.swift */; };
+		F6D3D2512A738FA700FE38B3 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2502A738FA700FE38B3 /* AppAppearance.swift */; };
+		F6D3D2562A73910E00FE38B3 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2552A73910E00FE38B3 /* TabBarCoordinator.swift */; };
+		F6D3D2582A73912700FE38B3 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2572A73912700FE38B3 /* HomeCoordinator.swift */; };
+		F6D3D25E2A73916600FE38B3 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D25D2A73916600FE38B3 /* MyPageCoordinator.swift */; };
+		F6D3D2602A73916B00FE38B3 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D25F2A73916B00FE38B3 /* MyPageViewModel.swift */; };
+		F6D3D2622A73917700FE38B3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */; };
+		F6D3D2642A73918500FE38B3 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2632A73918500FE38B3 /* MyPageView.swift */; };
+		F6D3D2672A7391BB00FE38B3 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2662A7391BB00FE38B3 /* MyPageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +104,19 @@
 		F676D6172A5C6EED008E9400 /* CastResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponseDTO.swift; sourceTree = "<group>"; };
 		F676D6192A5D7B02008E9400 /* GenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
 		F676D61B2A5D7B45008E9400 /* GenreResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponseDTO.swift; sourceTree = "<group>"; };
+		F6D3D2422A7389BC00FE38B3 /* TabBarPageCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPageCase.swift; sourceTree = "<group>"; };
+		F6D3D2482A738A4800FE38B3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F6D3D24A2A738A4E00FE38B3 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
+		F6D3D24C2A738A5500FE38B3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F6D3D24E2A738C0500FE38B3 /* CoordinatorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCase.swift; sourceTree = "<group>"; };
+		F6D3D2502A738FA700FE38B3 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		F6D3D2552A73910E00FE38B3 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		F6D3D2572A73912700FE38B3 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		F6D3D25D2A73916600FE38B3 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
+		F6D3D25F2A73916B00FE38B3 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		F6D3D2632A73918500FE38B3 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		F6D3D2662A7391BB00FE38B3 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +127,11 @@
 				F676D5962A582E7D008E9400 /* RxCocoa in Frameworks */,
 				F676D5902A582E5D008E9400 /* Then in Frameworks */,
 				F676D5982A582E7D008E9400 /* RxSwift in Frameworks */,
+				F6D3D2402A7388EB00FE38B3 /* RealmSwift in Frameworks */,
 				F676D5CB2A585EA4008E9400 /* Moya in Frameworks */,
 				F676D6132A5C0CE5008E9400 /* RxDataSources in Frameworks */,
 				F676D6112A5C0CE5008E9400 /* Differentiator in Frameworks */,
+				F6D3D23E2A7388EB00FE38B3 /* Realm in Frameworks */,
 				F676D5932A582E67008E9400 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +162,7 @@
 				F676D5832A582CD5008E9400 /* Application */,
 				F676D5A42A583022008E9400 /* Extension */,
 				F676D5A12A582F48008E9400 /* Global */,
-				F676D5992A582EB4008E9400 /* Utillity */,
+				F676D5992A582EB4008E9400 /* Utils */,
 				F676D5CC2A585F4C008E9400 /* Network */,
 				F676D5B82A585910008E9400 /* Domain */,
 				F676D5B72A585849008E9400 /* Data */,
@@ -149,6 +179,7 @@
 			children = (
 				F676D56D2A582195008E9400 /* AppDelegate.swift */,
 				F676D56F2A582195008E9400 /* SceneDelegate.swift */,
+				F6D3D2502A738FA700FE38B3 /* AppAppearance.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -156,8 +187,8 @@
 		F676D5852A582CF9008E9400 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F676D5862A582D06008E9400 /* Main */,
-				F676D5FA2A5BE30C008E9400 /* Detail */,
+				F6D3D2452A738A2400FE38B3 /* Common */,
+				F6D3D2442A738A1800FE38B3 /* TabBar */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -189,13 +220,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F676D5992A582EB4008E9400 /* Utillity */ = {
+		F676D5992A582EB4008E9400 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F6D3D2412A7389B100FE38B3 /* Constant */,
 				F676D5AC2A58354B008E9400 /* CustomView */,
 				F676D59A2A582EC2008E9400 /* Base */,
 			);
-			path = Utillity;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F676D59A2A582EC2008E9400 /* Base */ = {
@@ -408,6 +440,121 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F6D3D2412A7389B100FE38B3 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2422A7389BC00FE38B3 /* TabBarPageCase.swift */,
+				F6D3D24E2A738C0500FE38B3 /* CoordinatorCase.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		F6D3D2442A738A1800FE38B3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2522A73905B00FE38B3 /* Coordinator */,
+				F6D3D2532A7390F000FE38B3 /* Home */,
+				F6D3D2592A73913000FE38B3 /* MyPage */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		F6D3D2452A738A2400FE38B3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2462A738A2F00FE38B3 /* Coordinator */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F6D3D2462A738A2F00FE38B3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2472A738A3B00FE38B3 /* Protocol */,
+				F6D3D24C2A738A5500FE38B3 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F6D3D2472A738A3B00FE38B3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2482A738A4800FE38B3 /* Coordinator.swift */,
+				F6D3D24A2A738A4E00FE38B3 /* CoordinatorDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F6D3D2522A73905B00FE38B3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2552A73910E00FE38B3 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F6D3D2532A7390F000FE38B3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2542A73910200FE38B3 /* Coordinator */,
+				F676D5862A582D06008E9400 /* Main */,
+				F676D5FA2A5BE30C008E9400 /* Detail */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F6D3D2542A73910200FE38B3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2572A73912700FE38B3 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F6D3D2592A73913000FE38B3 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D25A2A73913F00FE38B3 /* Coordinator */,
+				F6D3D25C2A73914300FE38B3 /* ViewModel */,
+				F6D3D25B2A73914100FE38B3 /* View */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		F6D3D25A2A73913F00FE38B3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D25D2A73916600FE38B3 /* MyPageCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F6D3D25B2A73914100FE38B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2652A73918E00FE38B3 /* Cell */,
+				F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */,
+				F6D3D2632A73918500FE38B3 /* MyPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6D3D25C2A73914300FE38B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D25F2A73916B00FE38B3 /* MyPageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6D3D2652A73918E00FE38B3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2662A7391BB00FE38B3 /* MyPageCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,6 +579,8 @@
 				F676D5CA2A585EA4008E9400 /* Moya */,
 				F676D6102A5C0CE5008E9400 /* Differentiator */,
 				F676D6122A5C0CE5008E9400 /* RxDataSources */,
+				F6D3D23D2A7388EB00FE38B3 /* Realm */,
+				F6D3D23F2A7388EB00FE38B3 /* RealmSwift */,
 			);
 			productName = CleanArchitecturePractice;
 			productReference = F676D56A2A582195008E9400 /* CleanArchitecturePractice.app */;
@@ -467,6 +616,7 @@
 				F676D5942A582E7D008E9400 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F676D5C92A585EA4008E9400 /* XCRemoteSwiftPackageReference "Moya" */,
 				F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				F6D3D23C2A7388EB00FE38B3 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = F676D56B2A582195008E9400 /* Products */;
 			projectDirPath = "";
@@ -495,9 +645,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F676D58D2A582D8B008E9400 /* MainView.swift in Sources */,
+				F6D3D2672A7391BB00FE38B3 /* MyPageCollectionViewCell.swift in Sources */,
+				F6D3D24D2A738A5500FE38B3 /* AppCoordinator.swift in Sources */,
+				F6D3D24F2A738C0500FE38B3 /* CoordinatorCase.swift in Sources */,
+				F6D3D2512A738FA700FE38B3 /* AppAppearance.swift in Sources */,
 				F676D6002A5BE334008E9400 /* DetailView.swift in Sources */,
 				F676D6022A5BE33A008E9400 /* DetailViewController.swift in Sources */,
 				F676D60C2A5BEA41008E9400 /* DetailUseCase.swift in Sources */,
+				F6D3D2602A73916B00FE38B3 /* MyPageViewModel.swift in Sources */,
 				F676D56E2A582195008E9400 /* AppDelegate.swift in Sources */,
 				F676D5C82A585DF1008E9400 /* TMDBRepository.swift in Sources */,
 				F676D5D02A5861B9008E9400 /* EndPoint.swift in Sources */,
@@ -505,9 +660,12 @@
 				F676D5D42A595281008E9400 /* MovieResponseDTO.swift in Sources */,
 				F676D5B42A585446008E9400 /* MainViewModel.swift in Sources */,
 				F676D5822A582B58008E9400 /* APIKey.swift in Sources */,
+				F6D3D24B2A738A4E00FE38B3 /* CoordinatorDelegate.swift in Sources */,
 				F676D5A02A582EFB008E9400 /* BaseTableViewCell.swift in Sources */,
 				F676D5B02A583A25008E9400 /* MainCollectionViewCell.swift in Sources */,
 				F676D6092A5BE389008E9400 /* DetailHeaderView.swift in Sources */,
+				F6D3D2562A73910E00FE38B3 /* TabBarCoordinator.swift in Sources */,
+				F6D3D2432A7389BC00FE38B3 /* TabBarPageCase.swift in Sources */,
 				F676D61A2A5D7B02008E9400 /* GenreResponse.swift in Sources */,
 				F676D59C2A582EF0008E9400 /* BaseView.swift in Sources */,
 				F676D5FE2A5BE328008E9400 /* DetailViewModel.swift in Sources */,
@@ -519,11 +677,16 @@
 				F676D6182A5C6EED008E9400 /* CastResponseDTO.swift in Sources */,
 				F676D5CE2A585F66008E9400 /* TMDBTarget.swift in Sources */,
 				F676D59E2A582EF5008E9400 /* BaseViewController.swift in Sources */,
+				F6D3D2642A73918500FE38B3 /* MyPageView.swift in Sources */,
+				F6D3D25E2A73916600FE38B3 /* MyPageCoordinator.swift in Sources */,
 				F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */,
+				F6D3D2492A738A4800FE38B3 /* Coordinator.swift in Sources */,
 				F676D5C22A585CA7008E9400 /* MovieResponse.swift in Sources */,
 				F676D5702A582195008E9400 /* SceneDelegate.swift in Sources */,
 				F676D6052A5BE36C008E9400 /* OverViewTableViewCell.swift in Sources */,
 				F676D5C42A585CAE008E9400 /* CastResponse.swift in Sources */,
+				F6D3D2622A73917700FE38B3 /* MyPageViewController.swift in Sources */,
+				F6D3D2582A73912700FE38B3 /* HomeCoordinator.swift in Sources */,
 				F676D58B2A582D85008E9400 /* MainViewController.swift in Sources */,
 				F676D5A32A582F56008E9400 /* Protocol.swift in Sources */,
 				F676D6072A5BE374008E9400 /* CastTableViewCell.swift in Sources */,
@@ -776,6 +939,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F6D3D23C2A7388EB00FE38B3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -813,6 +984,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
+		};
+		F6D3D23D2A7388EB00FE38B3 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6D3D23C2A7388EB00FE38B3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		F6D3D23F2A7388EB00FE38B3 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6D3D23C2A7388EB00FE38B3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

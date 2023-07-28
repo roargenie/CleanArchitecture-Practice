@@ -37,6 +37,7 @@ final class DetailViewController: BaseViewController {
     }
     
     override func configureUI() {
+        navigationItem.title = "상세 정보"
         mainView.setupHeaderView(data: viewModel.selectedMovie.value.first!)
         mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
@@ -57,6 +58,7 @@ final class DetailViewController: BaseViewController {
                 vc.mainView.tableView.reloadData()
             }
             .disposed(by: disposeBag)
+        
     }
     
     

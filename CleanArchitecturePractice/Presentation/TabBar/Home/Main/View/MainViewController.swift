@@ -16,7 +16,6 @@ final class MainViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private var genreList: [Int: String] = [:]
     
-    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +32,11 @@ final class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+    }
+    
+    override func configureUI() {
+        navigationItem.backButtonTitle = ""
+        navigationItem.title = "영화 목록"
     }
     
     private func bindViewModel() {
@@ -56,17 +60,7 @@ final class MainViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
             
-        viewModel.moveToDetailVC = { [weak self] data in
-            self?.moveToDetailVC(data: data)
-        }
     }
-    
-    private func moveToDetailVC(data: MovieResults) {
-        let vc = DetailViewController(viewModel: DetailViewModel(detailUseCase: DetailUseCase(tmdbRepository: TMDBRepository())))
-        vc.viewModel.selectedMovie.accept([data])
-        self.present(vc, animated: true)
-    }
-    
     
 }
 

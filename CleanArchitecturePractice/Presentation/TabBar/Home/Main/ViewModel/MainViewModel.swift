@@ -12,9 +12,10 @@ import RxCocoa
 
 final class MainViewModel: CommonViewModelType {
     
+    private weak var coordinator: HomeCoordinator?
     private let mainUseCase: MainUseCase
     var castList = [[CastResults]]()
-    var moveToDetailVC: ((MovieResults) -> Void)?
+//    var moveToDetailVC: ((MovieResults) -> Void)?
     
     struct Input {
         let viewDidLoadEvent: Signal<Void>
@@ -26,7 +27,8 @@ final class MainViewModel: CommonViewModelType {
         let genreList: Driver<[GenreResults]>
     }
     
-    init(mainUseCase: MainUseCase) {
+    init(coordinator: HomeCoordinator?, mainUseCase: MainUseCase) {
+        self.coordinator = coordinator
         self.mainUseCase = mainUseCase
     }
     var disposeBag = DisposeBag()
@@ -50,7 +52,8 @@ final class MainViewModel: CommonViewModelType {
         input.itemSelected
             .withUnretained(self)
             .emit { vm, item in
-                vm.moveToVC(data: item)
+//                vm.moveToVC(data: item)
+                vm.coordinator?.pushToDetailViewController(data: item)
             }
             .disposed(by: disposeBag)
         
@@ -93,7 +96,7 @@ extension MainViewModel {
         self.mainUseCase.requestGenre()
     }
     
-    private func moveToVC(data: MovieResults) {
-        moveToDetailVC?(data)
-    }
+//    private func moveToVC(data: MovieResults) {
+//        moveToDetailVC?(data)
+//    }
 }

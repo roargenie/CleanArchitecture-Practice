@@ -71,7 +71,7 @@ final class MainCollectionViewCell: BaseCollectionViewCell {
     }
     
     let castingCharactersLabel: UILabel = UILabel().then {
-        $0.text = "dddddd, aaaaa, bbbbb bb, cccccc"
+        $0.text = ""
         $0.font = .systemFont(ofSize: 16, weight: .light)
         $0.textColor = .gray
     }
