@@ -38,7 +38,7 @@ final class DetailViewController: BaseViewController {
     
     override func configureUI() {
         navigationItem.title = "상세 정보"
-        mainView.setupHeaderView(data: viewModel.selectedMovie.value.first!)
+//        mainView.setupHeaderView(data: viewModel.selectedMovie.value.first!)
         mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
@@ -70,6 +70,11 @@ extension DetailViewController {
         dataSource = RxTableViewSectionedReloadDataSource<MovieSectionModel>(configureCell: { [weak self] dataSource, tableView, indexPath, item in
             guard let self = self else { return UITableViewCell() }
             switch item {
+            case .HeaderviewItem(response: let data):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: HeaderViewTableViewCell.reuseIdentifier, for: indexPath) as? HeaderViewTableViewCell else { return UITableViewCell() }
+                cell.setupHeaderView(data: data)
+                cell.setViewModel(self.viewModel)
+                return cell
             case .OverviewItem(response: let data):
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as? OverViewTableViewCell else { return UITableViewCell() }
                 cell.overviewLabel.text = data.overview
@@ -90,16 +95,9 @@ extension DetailViewController {
 }
 
 extension DetailViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-
-        switch indexPath.section {
-        case 0:
-            return UITableView.automaticDimension
-        default:
-            return UITableView.automaticDimension
-        }
-        
+        return UITableView.automaticDimension
     }
-
+    
 }

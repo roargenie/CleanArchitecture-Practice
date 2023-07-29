@@ -64,6 +64,13 @@
 		F6D3D2622A73917700FE38B3 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */; };
 		F6D3D2642A73918500FE38B3 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2632A73918500FE38B3 /* MyPageView.swift */; };
 		F6D3D2672A7391BB00FE38B3 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2662A7391BB00FE38B3 /* MyPageCollectionViewCell.swift */; };
+		F6D3D2692A73BAD200FE38B3 /* HeaderViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2682A73BAD200FE38B3 /* HeaderViewTableViewCell.swift */; };
+		F6D3D26C2A73C56200FE38B3 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F6D3D26B2A73C56200FE38B3 /* Toast */; };
+		F6D3D2702A73CC7600FE38B3 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D26F2A73CC7600FE38B3 /* RealmStorage.swift */; };
+		F6D3D2722A73CC8E00FE38B3 /* FavoriteListRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2712A73CC8E00FE38B3 /* FavoriteListRealmDTO.swift */; };
+		F6D3D2742A73D22600FE38B3 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2732A73D22600FE38B3 /* RealmRepository.swift */; };
+		F6D3D2762A73D25E00FE38B3 /* RealmRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2752A73D25E00FE38B3 /* RealmRepositoryType.swift */; };
+		F6D3D2792A73E1D600FE38B3 /* FavoriteListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3D2782A73E1D600FE38B3 /* FavoriteListUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +124,12 @@
 		F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		F6D3D2632A73918500FE38B3 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		F6D3D2662A7391BB00FE38B3 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F6D3D2682A73BAD200FE38B3 /* HeaderViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewTableViewCell.swift; sourceTree = "<group>"; };
+		F6D3D26F2A73CC7600FE38B3 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		F6D3D2712A73CC8E00FE38B3 /* FavoriteListRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRealmDTO.swift; sourceTree = "<group>"; };
+		F6D3D2732A73D22600FE38B3 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		F6D3D2752A73D25E00FE38B3 /* RealmRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepositoryType.swift; sourceTree = "<group>"; };
+		F6D3D2782A73E1D600FE38B3 /* FavoriteListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +145,7 @@
 				F676D6132A5C0CE5008E9400 /* RxDataSources in Frameworks */,
 				F676D6112A5C0CE5008E9400 /* Differentiator in Frameworks */,
 				F6D3D23E2A7388EB00FE38B3 /* Realm in Frameworks */,
+				F6D3D26C2A73C56200FE38B3 /* Toast in Frameworks */,
 				F676D5932A582E67008E9400 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,8 +289,8 @@
 		F676D5B52A58583B008E9400 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				F676D5BA2A58593E008E9400 /* Main */,
-				F676D60A2A5BEA26008E9400 /* Detail */,
+				F6D3D2772A73E19B00FE38B3 /* Home */,
+				F676D60A2A5BEA26008E9400 /* MyPage */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -285,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				F676D5D12A5942B6008E9400 /* TMDBRepositoryType.swift */,
+				F6D3D2752A73D25E00FE38B3 /* RealmRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -292,6 +307,7 @@
 		F676D5B72A585849008E9400 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F6D3D26D2A73CC6400FE38B3 /* DataBase */,
 				F676D5C02A5859B0008E9400 /* DataMapping */,
 				F676D5BF2A585997008E9400 /* Repository */,
 			);
@@ -315,14 +331,6 @@
 				F676D5BD2A585954008E9400 /* Response */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F676D5BA2A58593E008E9400 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				F676D5BB2A58594B008E9400 /* MainUseCase.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		F676D5BD2A585954008E9400 /* Response */ = {
@@ -350,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				F676D5C72A585DF1008E9400 /* TMDBRepository.swift */,
+				F6D3D2732A73D22600FE38B3 /* RealmRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -357,6 +366,7 @@
 		F676D5C02A5859B0008E9400 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				F6D3D26E2A73CC6900FE38B3 /* RealmDTO */,
 				F676D60E2A5BEA5C008E9400 /* RequestDTO */,
 				F676D5BE2A58598E008E9400 /* ResponseDTO */,
 			);
@@ -387,7 +397,6 @@
 			children = (
 				F676D6032A5BE351008E9400 /* Cell */,
 				F676D5FF2A5BE334008E9400 /* DetailView.swift */,
-				F676D6082A5BE389008E9400 /* DetailHeaderView.swift */,
 				F676D6012A5BE33A008E9400 /* DetailViewController.swift */,
 			);
 			path = View;
@@ -404,18 +413,20 @@
 		F676D6032A5BE351008E9400 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				F676D6082A5BE389008E9400 /* DetailHeaderView.swift */,
+				F6D3D2682A73BAD200FE38B3 /* HeaderViewTableViewCell.swift */,
 				F676D6042A5BE36C008E9400 /* OverViewTableViewCell.swift */,
 				F676D6062A5BE374008E9400 /* CastTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		F676D60A2A5BEA26008E9400 /* Detail */ = {
+		F676D60A2A5BEA26008E9400 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */,
+				F6D3D2782A73E1D600FE38B3 /* FavoriteListUseCase.swift */,
 			);
-			path = Detail;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		F676D60D2A5BEA4D008E9400 /* Request */ = {
@@ -555,6 +566,31 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		F6D3D26D2A73CC6400FE38B3 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D26F2A73CC7600FE38B3 /* RealmStorage.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		F6D3D26E2A73CC6900FE38B3 /* RealmDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3D2712A73CC8E00FE38B3 /* FavoriteListRealmDTO.swift */,
+			);
+			path = RealmDTO;
+			sourceTree = "<group>";
+		};
+		F6D3D2772A73E19B00FE38B3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F676D5BB2A58594B008E9400 /* MainUseCase.swift */,
+				F676D60B2A5BEA41008E9400 /* DetailUseCase.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -581,6 +617,7 @@
 				F676D6122A5C0CE5008E9400 /* RxDataSources */,
 				F6D3D23D2A7388EB00FE38B3 /* Realm */,
 				F6D3D23F2A7388EB00FE38B3 /* RealmSwift */,
+				F6D3D26B2A73C56200FE38B3 /* Toast */,
 			);
 			productName = CleanArchitecturePractice;
 			productReference = F676D56A2A582195008E9400 /* CleanArchitecturePractice.app */;
@@ -617,6 +654,7 @@
 				F676D5C92A585EA4008E9400 /* XCRemoteSwiftPackageReference "Moya" */,
 				F676D60F2A5C0CE5008E9400 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				F6D3D23C2A7388EB00FE38B3 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F6D3D26A2A73C56200FE38B3 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = F676D56B2A582195008E9400 /* Products */;
 			projectDirPath = "";
@@ -679,14 +717,20 @@
 				F676D59E2A582EF5008E9400 /* BaseViewController.swift in Sources */,
 				F6D3D2642A73918500FE38B3 /* MyPageView.swift in Sources */,
 				F6D3D25E2A73916600FE38B3 /* MyPageCoordinator.swift in Sources */,
+				F6D3D2702A73CC7600FE38B3 /* RealmStorage.swift in Sources */,
 				F676D6152A5C15E8008E9400 /* SectionModel.swift in Sources */,
 				F6D3D2492A738A4800FE38B3 /* Coordinator.swift in Sources */,
 				F676D5C22A585CA7008E9400 /* MovieResponse.swift in Sources */,
 				F676D5702A582195008E9400 /* SceneDelegate.swift in Sources */,
+				F6D3D2722A73CC8E00FE38B3 /* FavoriteListRealmDTO.swift in Sources */,
+				F6D3D2792A73E1D600FE38B3 /* FavoriteListUseCase.swift in Sources */,
 				F676D6052A5BE36C008E9400 /* OverViewTableViewCell.swift in Sources */,
 				F676D5C42A585CAE008E9400 /* CastResponse.swift in Sources */,
 				F6D3D2622A73917700FE38B3 /* MyPageViewController.swift in Sources */,
 				F6D3D2582A73912700FE38B3 /* HomeCoordinator.swift in Sources */,
+				F6D3D2742A73D22600FE38B3 /* RealmRepository.swift in Sources */,
+				F6D3D2762A73D25E00FE38B3 /* RealmRepositoryType.swift in Sources */,
+				F6D3D2692A73BAD200FE38B3 /* HeaderViewTableViewCell.swift in Sources */,
 				F676D58B2A582D85008E9400 /* MainViewController.swift in Sources */,
 				F676D5A32A582F56008E9400 /* Protocol.swift in Sources */,
 				F676D6072A5BE374008E9400 /* CastTableViewCell.swift in Sources */,
@@ -947,6 +991,14 @@
 				kind = branch;
 			};
 		};
+		F6D3D26A2A73C56200FE38B3 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -994,6 +1046,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F6D3D23C2A7388EB00FE38B3 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		F6D3D26B2A73C56200FE38B3 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6D3D26A2A73C56200FE38B3 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

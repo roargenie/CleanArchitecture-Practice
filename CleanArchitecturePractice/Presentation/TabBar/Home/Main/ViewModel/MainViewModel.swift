@@ -41,18 +41,14 @@ final class MainViewModel: CommonViewModelType {
         input.viewDidLoadEvent
             .emit(onNext: { [weak self] in
                 print("=======🔥ViewModel ViewDidLoad Event======")
-//                self?.requestGenre()
-//                self?.requestMovie()
                 self?.requestMovieAndGenre()
                 self?.makeCastData()
-//                self?.castList = self?.mainUseCase.successCast ?? []
             })
             .disposed(by: disposeBag)
         
         input.itemSelected
             .withUnretained(self)
             .emit { vm, item in
-//                vm.moveToVC(data: item)
                 vm.coordinator?.pushToDetailViewController(data: item)
             }
             .disposed(by: disposeBag)
@@ -96,7 +92,5 @@ extension MainViewModel {
         self.mainUseCase.requestGenre()
     }
     
-//    private func moveToVC(data: MovieResults) {
-//        moveToDetailVC?(data)
-//    }
+    
 }

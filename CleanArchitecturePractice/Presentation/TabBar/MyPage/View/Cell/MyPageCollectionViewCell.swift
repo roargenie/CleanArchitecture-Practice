@@ -15,6 +15,7 @@ final class MyPageCollectionViewCell: BaseCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .blue
     }
     
     override func configureUI() {

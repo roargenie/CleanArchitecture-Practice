@@ -31,7 +31,9 @@ final class HomeCoordinator: Coordinator {
         let vc = DetailViewController(
             viewModel: DetailViewModel(
                 detailUseCase: DetailUseCase(
-                    tmdbRepository: TMDBRepository())))
+                    tmdbRepository: TMDBRepository(),
+                    realmRepository: RealmRepository()),
+                realmData: FavoriteListRealmDTO()))
         vc.viewModel.selectedMovie.accept([data])
         vc.hidesBottomBarWhenPushed = true
         navigationController.setNavigationBarHidden(false, animated: false)

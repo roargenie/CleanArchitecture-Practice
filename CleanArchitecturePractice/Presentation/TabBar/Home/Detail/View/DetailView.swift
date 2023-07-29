@@ -9,12 +9,13 @@ import UIKit
 
 final class DetailView: BaseView {
     
-    let tableHeaderView: UIView = DetailHeaderView().then {
-        $0.frame = CGRect(x: 0, y: 0, width: $0.bounds.width, height: 230)
-    }
+//    let tableHeaderView: UIView = DetailHeaderView().then {
+//        $0.frame = CGRect(x: 0, y: 0, width: $0.bounds.width, height: 230)
+//    }
     
     lazy var tableView: UITableView = UITableView(frame: .zero, style: .plain).then {
-        $0.tableHeaderView = tableHeaderView
+//        $0.tableHeaderView = tableHeaderView
+        $0.register(HeaderViewTableViewCell.self, forCellReuseIdentifier: HeaderViewTableViewCell.reuseIdentifier)
         $0.register(OverViewTableViewCell.self, forCellReuseIdentifier: OverViewTableViewCell.reuseIdentifier)
         $0.register(CastTableViewCell.self, forCellReuseIdentifier: CastTableViewCell.reuseIdentifier)
         $0.estimatedRowHeight = UITableView.automaticDimension
@@ -34,10 +35,10 @@ final class DetailView: BaseView {
         }
     }
     
-    func setupHeaderView(data: MovieResults) {
-        if let headerView = tableHeaderView as? DetailHeaderView {
-            headerView.setupHeaderView(data: data)
-        }
-    }
+//    func setupHeaderView(data: MovieResults) {
+//        if let headerView = tableHeaderView as? DetailHeaderView {
+//            headerView.setupHeaderView(data: data)
+//        }
+//    }
     
 }

@@ -9,11 +9,13 @@ import Foundation
 import RxDataSources
 
 enum MovieSectionItem {
+    case HeaderviewItem(response: MovieResults)
     case OverviewItem(response: MovieResults)
     case CastviewItem(response: CastResults)
 }
 
 enum MovieSectionModel {
+    case headerview(items: [MovieSectionItem])
     case overview(header: String, items: [MovieSectionItem])
     case cast(header: String, items: [MovieSectionItem])
 }
@@ -24,6 +26,8 @@ extension MovieSectionModel: SectionModelType {
     
     init(original: MovieSectionModel, items: [Item]) {
         switch original {
+        case .headerview(let items):
+            self = .headerview(items: items)
         case .overview(let header, let items):
             self = .overview(header: header, items: items)
         case .cast(let header, let items):
@@ -43,6 +47,8 @@ extension MovieSectionModel: SectionModelType {
     
     var items: [Item] {
         switch self {
+        case let .headerview(items):
+            return items
         case let .overview(_, items):
             return items
         case let .cast(_, items):

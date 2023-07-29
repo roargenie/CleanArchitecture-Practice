@@ -9,8 +9,11 @@ import UIKit
 
 final class MyPageViewController: BaseViewController {
     
+    private let mainView = MyPageView()
     
-    
+    override func loadView() {
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
