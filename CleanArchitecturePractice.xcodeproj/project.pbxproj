@@ -544,8 +544,8 @@
 			isa = PBXGroup;
 			children = (
 				F6D3D2652A73918E00FE38B3 /* Cell */,
-				F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */,
 				F6D3D2632A73918500FE38B3 /* MyPageView.swift */,
+				F6D3D2612A73917700FE38B3 /* MyPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

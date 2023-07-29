@@ -30,8 +30,8 @@ final class MyPageView: BaseView {
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
-        let width = UIScreen.main.bounds.width / 3
-        let height: CGFloat = 420
+        let width = (UIScreen.main.bounds.width - 32) / 3
+        let height: CGFloat = width
         
         layout.itemSize = CGSize(width: width, height: height)
         layout.scrollDirection = .vertical

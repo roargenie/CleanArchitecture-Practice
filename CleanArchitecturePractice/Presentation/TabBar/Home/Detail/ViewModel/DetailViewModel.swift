@@ -79,6 +79,7 @@ extension DetailViewModel {
         self.detailUseCase.deleteFavoriteMovie(movieId: movieId)
     }
     
+    // 좋아요 버튼 색상을 나타내기 위해 Realm과 API정보를 비교하는 메서드
     private func filterMovieId(movieId: Int) {
         let result = self.detailUseCase.filterMovieId(movieId: movieId)
         self.isContainFavoriteList.accept(result)

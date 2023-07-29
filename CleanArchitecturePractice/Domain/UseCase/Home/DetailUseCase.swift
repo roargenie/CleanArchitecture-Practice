@@ -16,7 +16,6 @@ final class DetailUseCase {
     
     let successCastSignal = PublishRelay<CastResponse>()
     
-    
     init(tmdbRepository: TMDBRepository, realmRepository: RealmRepositoryType) {
         self.tmdbRepository = tmdbRepository
         self.realmRepository = realmRepository
@@ -25,7 +24,7 @@ final class DetailUseCase {
    
 }
 
-//MARK: - 서버
+//MARK: - API
 
 extension DetailUseCase {
     

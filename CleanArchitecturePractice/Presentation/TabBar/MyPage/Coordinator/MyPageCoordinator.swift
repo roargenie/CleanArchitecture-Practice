@@ -19,7 +19,11 @@ final class MyPageCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = MyPageViewController()
+        let vc = MyPageViewController(
+            viewModel: MyPageViewModel(
+                coordinator: self,
+                myPageUseCase: FavoriteListUseCase(
+                    realmRepository: RealmRepository())))
         navigationController.pushViewController(vc, animated: true)
     }
     

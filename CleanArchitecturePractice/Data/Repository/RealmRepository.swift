@@ -19,10 +19,14 @@ final class RealmRepository: RealmRepositoryType {
 
 extension RealmRepository {
     
-    func loadFavoriteMovieList(movieID: Int) -> [MovieResults] {
+    func loadFavoriteMovieList() -> [MovieResults] {
         let realmDTO = storage.read()
         return realmDTO.map { $0.toDomain() }
     }
+    
+//    func loadFavoriteMovieList() -> Results<FavoriteListRealmDTO> {
+//        return storage.read()
+//    }
     
     func saveFavoriteMovie(movie: MovieResults) {
         let movieDTO = FavoriteListRealmDTO(movie: movie)
