@@ -33,7 +33,9 @@ final class HomeCoordinator: Coordinator {
                 detailUseCase: DetailUseCase(
                     tmdbRepository: TMDBRepository(),
                     realmRepository: RealmRepository()),
-                realmData: FavoriteListRealmDTO()))
+                realmData: FavoriteListRealmDTO(),
+                favoriteListUseCase: FavoriteListUseCase(
+                    realmRepository: RealmRepository())))
         vc.viewModel.selectedMovie.accept([data])
         vc.hidesBottomBarWhenPushed = true
         navigationController.setNavigationBarHidden(false, animated: false)

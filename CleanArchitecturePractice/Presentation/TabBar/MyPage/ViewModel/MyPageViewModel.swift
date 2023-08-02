@@ -28,7 +28,7 @@ final class MyPageViewModel: CommonViewModelType {
         self.coordinator = coordinator
         self.myPageUseCase = myPageUseCase
     }
-    var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     private let favoriteMovieList = BehaviorRelay<[MovieResults]>(value: [])
     
@@ -38,14 +38,15 @@ final class MyPageViewModel: CommonViewModelType {
             .emit(onNext: { [weak self] in
                 print("=====🔥MyPageViewModel=====")
                 guard let self = self else { return }
-//                self.loadFavoriteMovieList()
+                self.loadFavoriteMovieList()
             })
             .disposed(by: disposeBag)
         
         input.viewWillAppearEvent
+            .debug("=================viewwillappear")
             .emit(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.loadFavoriteMovieList()
+//                self.loadFavoriteMovieList()
             })
             .disposed(by: disposeBag)
         
@@ -66,7 +67,8 @@ final class MyPageViewModel: CommonViewModelType {
 
 extension MyPageViewModel {
     
-    private func loadFavoriteMovieList() {
+    func loadFavoriteMovieList() {
+        print("================DataFetch========")
         self.myPageUseCase.loadFavoriteMovieList()
     }
     

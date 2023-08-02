@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 final class MyPageViewController: BaseViewController {
     
@@ -36,6 +37,7 @@ final class MyPageViewController: BaseViewController {
     override func configureUI() {
         navigationItem.backButtonTitle = ""
         navigationItem.title = "관심 목록"
+        tabBarController?.delegate = self
     }
     
     private func bindViewModel() {
@@ -54,9 +56,22 @@ final class MyPageViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+//        viewModel.favoriteMovieList
+//            .withUnretained(self)
+//            .bind { vc, _ in
+//                vc.mainView.collectionView.reloadData()
+//            }
+//            .disposed(by: disposeBag)
         
     }
     
     
     
+}
+
+extension MyPageViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        viewModel.loadFavoriteMovieList()
+    }
 }

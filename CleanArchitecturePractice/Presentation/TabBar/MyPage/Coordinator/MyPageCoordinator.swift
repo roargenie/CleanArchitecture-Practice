@@ -19,6 +19,7 @@ final class MyPageCoordinator: Coordinator {
     }
     
     func start() {
+        print("==============Mypage Coordinator")
         let vc = MyPageViewController(
             viewModel: MyPageViewModel(
                 coordinator: self,

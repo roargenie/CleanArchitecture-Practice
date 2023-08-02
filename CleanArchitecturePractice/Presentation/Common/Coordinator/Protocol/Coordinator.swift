@@ -43,11 +43,21 @@ extension Coordinator {
     }
     
     func changeAnimation() {
-        if let window = UIApplication.shared.windows.first {
+//        if let window = UIApplication.shared.windows.first {
+//            UIView.transition(with: window,
+//                              duration: 0.5,
+//                              options: .transitionCrossDissolve,
+//                              animations: nil)
+//        }
+        if let mainWindowScene = UIApplication.shared.connectedScenes
+            .filter({ $0.activationState == .foregroundActive })
+            .first as? UIWindowScene,
+           let window = mainWindowScene.windows.first {
             UIView.transition(with: window,
                               duration: 0.5,
-                              options: .transitionCrossDissolve,
-                              animations: nil)
+                              options: .transitionCrossDissolve) {
+                // Animation code here
+            }
         }
     }
 }

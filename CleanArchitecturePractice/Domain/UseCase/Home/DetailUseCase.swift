@@ -21,7 +21,6 @@ final class DetailUseCase {
         self.realmRepository = realmRepository
     }
     
-   
 }
 
 //MARK: - API

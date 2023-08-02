@@ -14,6 +14,7 @@ final class DetailViewModel: CommonViewModelType {
     private var sections: [MovieSectionModel] = []
     private var realmData: FavoriteListRealmDTO
     private let detailUseCase: DetailUseCase
+    private let favoriteListUseCase: FavoriteListUseCase
     
     struct Input {
         let viewDidLoadEvent: Signal<Void>
@@ -24,9 +25,10 @@ final class DetailViewModel: CommonViewModelType {
         let moreViewButtonIsSelected: Signal<Bool>
     }
     
-    init(detailUseCase: DetailUseCase, realmData: FavoriteListRealmDTO) {
+    init(detailUseCase: DetailUseCase, realmData: FavoriteListRealmDTO, favoriteListUseCase: FavoriteListUseCase) {
         self.detailUseCase = detailUseCase
         self.realmData = realmData
+        self.favoriteListUseCase = favoriteListUseCase
     }
     var disposeBag = DisposeBag()
     
@@ -67,6 +69,10 @@ extension DetailViewModel {
         guard let id = selectedMovie.value.first?.id else { return }
         self.filterMovieId(movieId: id)
         self.detailUseCase.requestCast(id: id)
+    }
+    
+    func loadFavoriteMovieList() {
+        self.favoriteListUseCase.loadFavoriteMovieList()
     }
     
     func saveFavoriteMovie(movie: MovieResults) {

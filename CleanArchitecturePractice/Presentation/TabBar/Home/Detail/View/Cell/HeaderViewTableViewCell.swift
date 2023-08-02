@@ -81,9 +81,9 @@ final class HeaderViewTableViewCell: BaseTableViewCell {
                 let newValue = !(cell.viewModel?.isContainFavoriteList.value ?? false)
                 newValue ? cell.viewModel?.saveFavoriteMovie(movie: (cell.viewModel?.selectedMovie.value.first!)!) : cell.viewModel?.deleteFavoriteMovie(movieId: (cell.viewModel?.selectedMovie.value.first!.id)!)
                 cell.viewModel?.isContainFavoriteList.accept(newValue)
+                cell.viewModel?.loadFavoriteMovieList()
             }
             .disposed(by: disposeBag)
-        
         
     }
     
